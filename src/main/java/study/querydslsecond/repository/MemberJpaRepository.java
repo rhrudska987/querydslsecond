@@ -1,23 +1,20 @@
 package study.querydslsecond.repository;
 
 import com.querydsl.core.BooleanBuilder;
-import com.querydsl.core.types.Predicate;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import org.springframework.stereotype.Repository;
-import org.springframework.util.StringUtils;
 import study.querydslsecond.dto.MemberSearchCondition;
 import study.querydslsecond.dto.MemberTeamDto;
 import study.querydslsecond.dto.QMemberTeamDto;
 import study.querydslsecond.entity.Member;
-import study.querydslsecond.entity.QMember;
-import study.querydslsecond.entity.QTeam;
 
 import javax.persistence.EntityManager;
 import java.util.List;
 import java.util.Optional;
 
-import static org.springframework.util.StringUtils.*;
+import static org.springframework.util.StringUtils.hasText;
+import static org.springframework.util.StringUtils.isEmpty;
 import static study.querydslsecond.entity.QMember.member;
 import static study.querydslsecond.entity.QTeam.team;
 
@@ -129,4 +126,6 @@ public class MemberJpaRepository {
     private BooleanExpression ageLoe(Integer ageLoe) {
         return ageLoe != null ? member.age.loe(ageLoe) : null;
     }
+
+
 }
